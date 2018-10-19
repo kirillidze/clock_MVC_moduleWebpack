@@ -1,0 +1,19 @@
+{
+  "name": "clock_mvc_modulewebpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p",
+    "watch": "webpack --watch"
+  },
+  "author": "kirill",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.21.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  }
+}
