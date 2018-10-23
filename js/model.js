@@ -1,3 +1,4 @@
+'use strict';
 export class Model {
     constructor(timezone) {
         this.timezone = timezone; // TODO: добавить зоны

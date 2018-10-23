@@ -1,13 +1,14 @@
+'use strict';
 import {
   Model
 } from "./model.js";
 import {
-  View
+  ClockDOMView,
+  ClockSVGView
 } from "./view.js";
 import {
   Controller
 } from "./controller.js";
-
 
 class Router {
   constructor(map, rootElement) {
@@ -17,7 +18,7 @@ class Router {
     window.addEventListener('hashchange', this.onhashchange.bind(this));
   }
 
-  onhashchange(e) {
+  onhashchange() {
     const activeHash = document.location.hash;
     // Отрисовать страницу для нового адреса
     this._route(activeHash);
@@ -49,7 +50,7 @@ new Router({
     runController: rootElement => {
       new Controller(
         new Model(0),
-        new View(rootElement, 'DOM'));
+        new ClockDOMView(rootElement));
     }
   },
   '#clock2': {
@@ -57,7 +58,7 @@ new Router({
     runController: rootElement => {
       new Controller(
         new Model(3),
-        new View(rootElement, 'DOM'));
+        new ClockDOMView(rootElement));
     }
   },
   '#clock3': {
@@ -65,7 +66,7 @@ new Router({
     runController: rootElement => {
       new Controller(
         new Model(-5),
-        new View(rootElement, 'SVG'));
+        new ClockSVGView(rootElement));
     }
   }
 }, document.body).navigateTo('#clock2');
